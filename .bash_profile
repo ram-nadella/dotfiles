@@ -37,3 +37,6 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
+
+# prompt
+export PS1='\u:\w$(__git_ps1 " (%s)")\$ '
