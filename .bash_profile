@@ -40,3 +40,15 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # prompt
 export PS1='\u:\w$(__git_ps1 " (%s)")\$ '
+
+# serve any directory using the serve command (uses WEBrick)
+function serve {
+  port="${1:-3000}"
+  ruby -r webrick -e "s = WEBrick::HTTPServer.new(:Port => $port, :DocumentRoot => Dir.pwd); trap('INT') { s.shutdown }; s.start"
+}
+
+
+#aliases
+alias lh="ls -alh"
+alias gg="git grep -n"
+alias ff="find . -name"
